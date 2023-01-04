@@ -1,0 +1,23 @@
+{
+  "name": "testapp",
+  "version": "1.0.0",
+  "description": "Simple webapp for k8s testing purposes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yurizaharov/testapp.git"
+  },
+  "author": "Yury Zakharov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yurizaharov/testapp/issues"
+  },
+  "homepage": "https://github.com/yurizaharov/testapp#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
