@@ -17,7 +17,7 @@ spec:
         - name: 0zh-registry-cred
       containers:
         - name: testapp
-          image: registry.0zh.ru/test/testapp:1.0.0
+          image: registry.0zh.ru/test/testapp:1.0.1
           ports:
             - containerPort: 8080
           imagePullPolicy: IfNotPresent
