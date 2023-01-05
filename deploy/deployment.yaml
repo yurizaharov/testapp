@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: testapp
+  namespace: testapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: testapp
+  template:
+    metadata:
+      labels:
+        name: testapp
+    spec:
+      imagePullSecrets:
+        - name: 0zh-registry-cred
+      containers:
+        - name: testapp
+          image: registry.0zh.ru/test/testapp:1.0.0
+          ports:
+            - containerPort: 8080
+          imagePullPolicy: IfNotPresent
+          command: ["npm"]
+          args: ["start"]
+          resources:
+            limits:
+              memory: 512Mi
+              cpu: "1"
