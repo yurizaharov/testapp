@@ -24,6 +24,9 @@ spec:
           command:
             - npm
             - start
+          envFrom:
+            - configMapRef:
+                name: testapp
           resources:
             limits:
               memory: 512Mi
