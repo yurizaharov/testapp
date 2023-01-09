@@ -1,6 +1,6 @@
 {
   "name": "testapp",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Simple webapp for k8s testing purposes",
   "main": "index.js",
   "scripts": {
