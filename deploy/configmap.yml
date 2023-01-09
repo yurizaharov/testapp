@@ -5,3 +5,4 @@ metadata:
   namespace: testapp
 data:
   FOO: bar
+  TEST_VAR: 'Value from environment variables'
