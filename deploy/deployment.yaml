@@ -1,5 +1,5 @@
-apiVersion: apps/v1
 kind: Deployment
+apiVersion: apps/v1
 metadata:
   name: testapp
   namespace: testapp
@@ -21,8 +21,9 @@ spec:
           ports:
             - containerPort: 8080
           imagePullPolicy: IfNotPresent
-          command: ["npm"]
-          args: ["start"]
+          command:
+            - npm
+            - start
           resources:
             limits:
               memory: 512Mi
