@@ -1,0 +1,19 @@
+resources:
+  - ../../base
+images:
+  - name: testapp_image
+    newName: registry.0zh.ru/test/testapp
+    newTag: 1.0.2
+namespace: testapp-prod
+configMapGenerator:
+  - name: testapp-config
+    envs:
+      - prod.properties
+      - ../../vars/1.0.2.properties
+patchesJson6902:
+  - target:
+      group: networking.k8s.io
+      version: v1
+      kind: Ingress
+      name: testapp
+    path: ingress-patch.yaml
