@@ -12,4 +12,4 @@
 
 - op: replace
   path: /spec/strategy/rollingUpdate/maxUnavailable
-  value: 1
+  value: 0
