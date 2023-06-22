@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const logger = require('../common/logger');
-const packJson = require("../package.json");
+const packJson = require('../package.json');
+const methods = require('../common/methods');
 
 testVar = process.env.TEST_VAR || 'Value from code'
 propVar = process.env.PROP_VAR
@@ -41,6 +42,13 @@ router
                 'propVar': propVar,
                 'hostname': hostName
             });
+    })
+
+    .get('/query/:number', function (req, res) {
+        methods.slowFunction(req.params.number);
+        res
+            .status(200)
+            .send();
     })
 
 module.exports = router;
