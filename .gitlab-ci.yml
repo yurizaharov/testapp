@@ -9,6 +9,6 @@ build-job:
     - /kaniko/executor
       --context "${CI_PROJECT_DIR}"
       --dockerfile "${CI_PROJECT_DIR}/Dockerfile"
-      --destination "registry.0zh.ru/kaniko/testapp:${APP_VERSION}"
+      --destination "registry.0zh.ru/test/testapp:${APP_VERSION}"
   rules:
     - if: $CI_PIPELINE_SOURCE == "trigger"
