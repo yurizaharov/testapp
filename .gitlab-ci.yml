@@ -20,7 +20,7 @@ download-job:
 
 build-job:
   stage: build-container
-  needs: ["download-app"]
+  needs: ["download-job"]
   image:
     name: gcr.io/kaniko-project/executor:v1.9.0-debug
     entrypoint: [""]
