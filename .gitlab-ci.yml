@@ -1,3 +1,7 @@
+workflow:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "trigger"
+
 stages:
   - download-app
   - build-container
@@ -16,6 +20,7 @@ download-job:
 
 build-job:
   stage: build-container
+  needs: ["download-app"]
   image:
     name: gcr.io/kaniko-project/executor:v1.9.0-debug
     entrypoint: [""]
@@ -27,5 +32,4 @@ build-job:
       --dockerfile "${CI_PROJECT_DIR}/Dockerfile"
       --destination "registry.0zh.ru/kaniko/testapp:${APP_VERSION}"
       --no-push
-  rules:
-    - if: $CI_PIPELINE_SOURCE == "trigger"
+
