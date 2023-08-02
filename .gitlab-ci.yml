@@ -1,5 +1,21 @@
+stages:
+  - download-app
+  - build-container
+
+download-job:
+  stage: download-app
+  image: alpine
+  script:
+    - apk --update add curl
+    - curl -SL https://github.com/docker/compose/releases/download/v2.18.1/docker-compose-linux-x86_64 -o docker-compose
+    - ls -la
+  artifacts:
+    untracked: true
+    when: on_success
+    expire_in: 5 mins
+
 build-job:
-  stage: build
+  stage: build-container
   image:
     name: gcr.io/kaniko-project/executor:v1.9.0-debug
     entrypoint: [""]
@@ -9,6 +25,7 @@ build-job:
     - /kaniko/executor
       --context "${CI_PROJECT_DIR}"
       --dockerfile "${CI_PROJECT_DIR}/Dockerfile"
-      --destination "registry.0zh.ru/test/testapp:${APP_VERSION}"
+      --destination "registry.0zh.ru/kaniko/testapp:${APP_VERSION}"
+      --no-push
   rules:
     - if: $CI_PIPELINE_SOURCE == "trigger"
