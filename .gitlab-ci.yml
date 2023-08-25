@@ -1,9 +1,5 @@
-stages:
-  - download-app
-  - build-container
-
 download-job:
-  stage: download-app
+  stage: .pre
   image: alpine
   script:
     - apk --update add curl
@@ -15,7 +11,7 @@ download-job:
     expire_in: 5 mins
 
 build-job:
-  stage: build-container
+  stage: build
   image:
     name: gcr.io/kaniko-project/executor:v1.9.0-debug
     entrypoint: [""]
