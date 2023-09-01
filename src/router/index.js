@@ -48,7 +48,10 @@ router
         methods.slowFunction(req.params.number);
         res
             .status(200)
-            .send();
+            .send({
+                'version': packJson.version,
+                'hostname': hostName
+            });
     })
 
 module.exports = router;
