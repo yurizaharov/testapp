@@ -1,15 +1,21 @@
 resources:
   - ../../base
 
+commonLabels:
+  app: testapp
+  env: c2
+
 images:
-  - name: testapp_image
+  - name: placeholder-image
     newName: registry.0zh.ru/testapp/testapp
     newTag: 1.2.1
 
 namespace: testapp
 
+namePrefix: testapp-
+
 configMapGenerator:
-  - name: testapp-config
+  - name: config
     envs:
       - test.properties
       - ../../vars/1.2.1.properties
@@ -25,5 +31,5 @@ patches:
       group: apps
       version: v1
       kind: Deployment
-      name: testapp
+      name: deployment
     path: patch-deployment.yaml
