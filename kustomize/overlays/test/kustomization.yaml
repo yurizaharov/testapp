@@ -33,3 +33,9 @@ patches:
       kind: Deployment
       name: deployment
     path: patch-deployment.yaml
+  - target:
+      group: monitoring.coreos.com
+      version: v1
+      kind: ServiceMonitor
+      name: servicemonitor
+    path: patch-servicemonitor.yaml
