@@ -1,0 +1,9 @@
+# Host name
+- op: replace
+  path: /spec/rules/0/host
+  value: testapp.0zh.ru
+
+# Related service name
+- op: replace
+  path: /spec/rules/0/http/paths/0/backend/service/name
+  value: testapp-service

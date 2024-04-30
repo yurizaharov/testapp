@@ -22,11 +22,11 @@ configMapGenerator:
 
 patches:
   - target:
-      group: gateway.networking.k8s.io
+      group: networking.k8s.io
       version: v1
-      kind: HTTPRoute
-      name: httproute
-    path: patch-httproute.yaml
+      kind: Ingress
+      name: ingress
+    path: patch-ingress.yaml
   - target:
       group: apps
       version: v1
