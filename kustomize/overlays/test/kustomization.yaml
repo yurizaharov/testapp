@@ -8,7 +8,7 @@ commonLabels:
 images:
   - name: placeholder-image
     newName: registry.0zh.ru/testapp/testapp
-    newTag: 1.2.1
+    newTag: 1.2.3
 
 namespace: testapp
 
@@ -18,15 +18,15 @@ configMapGenerator:
   - name: config
     envs:
       - test.properties
-      - ../../vars/1.2.1.properties
+      - ../../vars/1.2.3.properties
 
 patches:
   - target:
-      group: networking.k8s.io
+      group: gateway.networking.k8s.io
       version: v1
-      kind: Ingress
-      name: ingress
-    path: patch-ingress.yaml
+      kind: HTTPRoute
+      name: httproute
+    path: patch-httproute.yaml
   - target:
       group: apps
       version: v1

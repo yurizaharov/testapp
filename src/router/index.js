@@ -54,4 +54,16 @@ router
             });
     })
 
+    .get('/response/:number', async function (req, res) {
+        let delay = req.params.number*1000
+        let result = await methods.delayResponse(delay);
+        res
+            .status(200)
+            .send({
+                'version': packJson.version,
+                'hostname': hostName,
+                'delay': req.params.number
+            });
+    })
+
 module.exports = router;
