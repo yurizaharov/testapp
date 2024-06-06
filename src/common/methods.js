@@ -11,6 +11,13 @@ const methods  = {
          let end = Date.now();
          let took = (end - begin) / 1000 + "s";
          logger.info('Request %d took: %s', number, took);
+    },
+
+    delayResponse: async function (delay, id) {
+        logger.info(delay, id)
+        await new Promise(resolve => setTimeout(resolve, delay));
+        logger.info(delay)
+        return delay
     }
 
 }
