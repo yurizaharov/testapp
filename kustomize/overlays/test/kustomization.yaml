@@ -22,20 +22,21 @@ configMapGenerator:
 
 patches:
   - target:
-      group: gateway.networking.k8s.io
-      version: v1
-      kind: HTTPRoute
-      name: httproute
-    path: patch-httproute.yaml
-  - target:
       group: apps
       version: v1
       kind: Deployment
       name: deployment
     path: patch-deployment.yaml
   - target:
+      group: networking.k8s.io
+      version: v1
+      kind: Ingress
+      name: ingress
+    path: patch-ingress.yaml
+  - target:
       group: monitoring.coreos.com
       version: v1
       kind: ServiceMonitor
       name: servicemonitor
     path: patch-servicemonitor.yaml
+#
